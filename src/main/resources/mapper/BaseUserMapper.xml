@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.djpf.personnel.mapper.BaseUserMapper">
+
+    <select id="seletcUserAll" resultType="com.djpf.personnel.entity.BaseUser">
+        SELECT f_id,person_id FROM base_user WHERE person_id IS NOT null
+    </select>
+</mapper>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.djpf.personnel.mapper.BaseOrganizeMapper">
+
+    <select id="seletcOrganizeAll" resultType="com.djpf.personnel.entity.BaseOrganize">
+        SELECT f_id,F_orgIndexCode FROM base_organize WHERE F_orgIndexCode IS NOT null AND F_orgIndexCode != ''
+    </select>
+    
+    <select id="selectOrganizeBySortCode" resultType="int">
+        SELECT F_SortCode FROM `base_organize` WHERE F_ParentId = #{FParentId} ORDER BY F_SortCode DESC LIMIT 1;
+    </select>
+
+    <select id="selectRootBySortCode" resultType="int">
+        SELECT F_SortCode FROM `base_organize` WHERE F_ParentId = "root000000" AND F_orgIndexCode IS NOT NULL ORDER BY F_SortCode DESC LIMIT 1;
+    </select>
+</mapper>
